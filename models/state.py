@@ -7,7 +7,7 @@ from sqlalchemy import Column, Integer, String
 import models
 from models.city import City
 import shlex
-
+from os import getenv
 
 class State(BaseModel, Base):
     """This is the class for State

@@ -11,7 +11,14 @@ from models.user import User
 from models.place import Place
 from models.review import Review
 from models.amenity import Amenity
-
+name2class = {
+    'Amenity': Amenity,
+    'City': City,
+    'Place': Place,
+    'State': State,
+    'Review': Review,
+    'User': User
+}
 
 class DBStorage:
     """ create tables in environmental"""
