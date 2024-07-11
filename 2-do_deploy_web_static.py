@@ -6,6 +6,7 @@ import os
 
 env.hosts = ['100.24.244.124', '18.210.33.175']
 
+
 def do_deploy(archive_path):
     """
     Distributes an archive to web servers
@@ -42,4 +43,3 @@ def do_deploy(archive_path):
     except Exception as e:
         print(f"Deployment Failed: {e}")
         return False
-    
