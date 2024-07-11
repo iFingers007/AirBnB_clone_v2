@@ -19,4 +19,3 @@ def do_pack():
         return arc_path
     else:
         return None
-    
