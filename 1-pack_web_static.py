@@ -8,13 +8,15 @@ import os
 
 def do_pack():
     """Generates a .tgz archive from the contents of the web_static folder"""
-    try:
-        if not os.path.exists("versions"):
-            os.makedir("versions")
-        now = datetime.now().strftime("%Y%m%d%H%M%S")
-        arc_name = f"versions/web_static_{now}.tgz"
-        local("tar -cvfz {} web_static".format(arc_name))
-        return arc_name
-    except Exception as e:
+    if not os.path.exists("versions"):
+        os.makedirs("versions")
+    now = datetime.now()
+    arc_name = f"web_static_{now.strftime('%Y%m%d%H%M%S')}.tgz"
+    arc_path = f"versions/{arc_name}"
+    cmd = f"tar -cvzf {arc_path} web_static"
+    result = local(cmd)
+    if result.return_code == 0:
+        return arc_path
+    else:
         return None
     
