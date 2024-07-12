@@ -34,8 +34,8 @@ def do_deploy(archive_path):
 
         run(f"rm /tmp/{arc_filename}")
 
-#        run(f"mv {release_dir}/web_static/ {release_dir}")
-#        run(f"rm -rf {release_dir}/web_static")
+        run(f"rsync -av {release_dir}/web_static/ {release_dir}")
+        run(f"rm -rf {release_dir}/web_static")
 
         run("rm -rf /data/web_static/current")
 
