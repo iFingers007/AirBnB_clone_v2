@@ -1,0 +1,17 @@
+#!/usr/bin/python3
+""" Module for Deployment of archive"""
+
+from fabric.api import env
+from 1-pack_web_static import do_pack
+from 2-do_deploy_web_static import do_deploy
+
+env.hosts = ['100.24.244.124', '18.210.33.175']
+env.user = 'ubuntu'
+env.key_filename = 'my_ssh_private_key'
+
+def deploy():
+    """Deploys everything in full"""
+    archive_path = do_pack()
+    if archive_path is None:
+        return False
+    return do_deploy(archive_path)
