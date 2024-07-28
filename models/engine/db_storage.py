@@ -20,6 +20,7 @@ name2class = {
     'User': User
 }
 
+
 class DBStorage:
     """ create tables in environmental"""
     __engine = None

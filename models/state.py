@@ -9,6 +9,7 @@ from models.city import City
 import shlex
 from os import getenv
 
+
 class State(BaseModel, Base):
     """This is the class for State
     Attributes:
@@ -17,12 +18,12 @@ class State(BaseModel, Base):
     if getenv('HBNB_TYPE_STORAGE') == 'db':
         __tablename__ = "states"
         name = Column(String(128), nullable=False)
-        cities = relationship("City", cascade='all, delete, delete-orphan',
-                          backref="state")
+        cities = relationship(
+            "City", cascade='all, delete, delete-orphan', backref="state"
+        )
 
     else:
         name = ""
-
 
     def __init__(self, *args, **kwargs):
         """initializes state"""
